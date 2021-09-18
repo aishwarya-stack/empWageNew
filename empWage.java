@@ -1,37 +1,39 @@
 package empWage;
-
+import java.util.*;
 public class empWage {
+	public static final int IS_PART_TIME=1;
+	public static final int IS_FULL_TIME=2;
+	public static final int EMP_RATE_PER_HOUR=20;
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int IS_FULL_TIME=2;
-		int IS_PART_TIME=1;
-		int EMP_RATE_PER_HOUR=20;
-		int empHrs=0;
-		int empWage=0;
+		
+		int empHr;
+		int empWage;
 System.out.print("Welcome to Employee Wage Computation Program on Master Branch");
-int empCheck = (int) (Math.floor(Math.random()*10)%2);;
+int empCheck = (int) (Math.floor(Math.random()*10)%3);;
 // int rand_int2 = rand.nextInt(1000);
 
  // Print random integers
  System.out.println("Random Integers: "+empCheck);
  //System.out.println("Random Integers: "+rand_int2);
 
- if(empCheck==IS_PART_TIME)
- {
-     empHrs=4;	  
-	   
- }
- else if(empCheck==IS_FULL_TIME)
- {
-	  empHrs=8;
- }
- else 
- {
-      empHrs=0;	  
-	   System.out.println("employee absent");
- }
- empWage=empHrs*EMP_RATE_PER_HOUR;
+ switch (empCheck) {
+ case 1:   empHr=8;
+          System.out.print("full time");
+          break;
+ case 2:  empHr=4;
+          System.out.print("part time");
+          break;
+ case 0:  empHr=0;
+          System.out.println("absent");
+          break;
+ 
+ default:empHr=0;
+          break;
+}
+ 
+ empWage=empHr*EMP_RATE_PER_HOUR;
 System.out.println("emp wage"+empWage);
 	
 	}
